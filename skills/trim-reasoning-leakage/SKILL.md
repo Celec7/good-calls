@@ -1,6 +1,6 @@
 ---
 name: trim-reasoning-leakage
-description: Use when auditing or fixing prose that reads like a leaked reasoning transcript, such as dead design-session citations, change narration, stack or review vantage, reviewer-addressed justification, control-flow narration, or hedged planning residue in comments, JSDoc, docs, or decision records.
+description: Use when writing or revising documentation, comments, JSDoc, or decision records during engineering work, or reviewing prose that mentions prior edits, branches or PRs, design or review artifacts, control-flow narration, or uncommitted plans.
 ---
 
 # Trim Reasoning Leakage

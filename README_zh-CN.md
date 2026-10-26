@@ -81,7 +81,7 @@ Agent 可以在当前任务中使用专项指导，再带着结果和证据继�
 
 正式文档沿用项目已有结构。没有结构且确实需要建立时，由 `canonical-docs` 提供适合的方案供用户选择，其中包含面向大型或 agent 密集语料库的可选文档分层。不把空目录树作为初始化步骤。
 
-决策记录保存动机、约束、真实替代方案、后果和重新考虑的条件。已有有效的 ADR/RFC 约定就沿用；没有时，`decision-records` 使用 `docs/agents/notes/{proposed,implemented,rejected,archived}/YYYY-MM-DD-topic.md`，按需创建目录。不要求索引、分类树或配套元数据。归档是冻结的历史，不作为当前依据。
+决策记录保存动机、约束、真实替代方案、后果和重新考虑的条件。已有有效的 ADR/RFC 约定就沿用；没有时，`decision-records` 使用 `docs/agents/notes/{proposed,implemented,rejected,archived}/YYYY-MM-DD-topic.md`，按需创建目录。用户触发的 `decision-records-setup` 可建立共享、本地专用或混合存储约定。本地记录只指导个人环境；需要约束协作者的决定应进入共享记录。不要求索引、分类树或配套元数据。归档是冻结的历史，不作为当前依据。
 
 临时状态默认留在对话中。交接确需文件、项目又没有约定时，`plan` 提供一个可选的 `docs/agents/work/<task>.md` 工作记录，注明负责人和清理或提炼时点，不默认提交。工作结束后，将有用决定放入其归属，移除本任务的可丢弃状态。任何技能调用都不强制产生文件。
 

@@ -1,6 +1,6 @@
 ---
 name: prose-standard
-description: Use when writing, reviewing, trimming, or restoring prose in Markdown, JSDoc, code comments, tests, READMEs, decision records, prompts, diagnostics, or user-visible strings, and when deciding what each of those surfaces must state.
+description: Use when creating, editing, or reviewing maintained prose, or when a code, API, or behavior change may require updating its written contract. Applies to documentation, comments, JSDoc, tests, prompts, diagnostics, and user-visible text.
 ---
 
 # Prose Standard
