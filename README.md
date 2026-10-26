@@ -2,7 +2,7 @@
 
 [![skills.sh](https://skills.sh/b/Celec7/beyond-code)](https://skills.sh/Celec7/beyond-code)
 
-The main workflow for agent-assisted software engineering, expressed through eighteen independent skills.
+The main workflow for agent-assisted software engineering, expressed through nineteen independent skills.
 
 English | [中文](README_zh-CN.md)
 
@@ -43,6 +43,7 @@ Foundation skills carry judgment the other skills reuse.
 | [code-review](skills/code-review/SKILL.md) | Inspect requirements, implementation, and evidence independently | Automatic |
 | [canonical-docs](skills/canonical-docs/SKILL.md) | Give accurate explanations one appropriate owner | Automatic |
 | [decision-records](skills/decision-records/SKILL.md) | Preserve and maintain reasons that code cannot recover | Automatic |
+| [decision-records-setup](skills/decision-records-setup/SKILL.md) | Establish a project's ADR convention from its existing documentation | User only |
 | [conventional-commit](skills/conventional-commit/SKILL.md) | Express a coherent change using the chosen commit convention | Automatic |
 
 ### Modes
@@ -92,7 +93,7 @@ npx skills add Celec7/beyond-code
 
 Select the whole suite or the individual skills you need. Skill bodies are English; the root catalog is available in both languages.
 
-For `grilling`, `teach`, and `retro`, `SKILL.md` declares `disable-model-invocation: true`, and `agents/openai.yaml` declares `policy.allow_implicit_invocation: false`. These encode user-only intent for hosts that support the respective metadata. Host behavior varies; the skill text also requires a user request. Other skills retain default discovery. This is instruction and invocation configuration, not mechanical edit prevention.
+For `decision-records-setup`, `grilling`, `teach`, and `retro`, `SKILL.md` declares `disable-model-invocation: true`, and `agents/openai.yaml` declares `policy.allow_implicit_invocation: false`. These encode user-only intent for hosts that support the respective metadata. Host behavior varies; the skill text also requires a user request. Other skills retain default discovery. This is instruction and invocation configuration, not mechanical edit prevention.
 
 Run `node scripts/check-skills.mjs` to check the structure locally: frontmatter, required sections, links, catalog, and resources. Its errors are structural; its warnings, such as the word budget, are advisory. Behavioral evaluation will come from development use; the suite makes no claim of tested compliance across models or hosts.
 

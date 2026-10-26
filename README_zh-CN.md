@@ -2,7 +2,7 @@
 
 [![skills.sh](https://skills.sh/b/Celec7/beyond-code)](https://skills.sh/Celec7/beyond-code)
 
-以十八个独立技能，构成 agent 辅助软件工程的工作流主线。
+以十九个独立技能，构成 agent 辅助软件工程的工作流主线。
 
 [English](README.md) | 中文
 
@@ -43,6 +43,7 @@ Beyond Code 提供贯穿需求澄清、设计、规划、实现反馈、审查�
 | [code-review](skills/code-review/SKILL.md) | 独立检查需求、实现和证据 | 自主 |
 | [canonical-docs](skills/canonical-docs/SKILL.md) | 让准确说明有合适且明确的归属 | 自主 |
 | [decision-records](skills/decision-records/SKILL.md) | 保存并维护无法从代码恢复的决策理由 | 自主 |
+| [decision-records-setup](skills/decision-records-setup/SKILL.md) | 基于项目现有文档建立 ADR 约定 | 仅用户 |
 | [conventional-commit](skills/conventional-commit/SKILL.md) | 按选定的提交约定表达完整变更意图 | 自主 |
 
 ### 模式（Modes）
@@ -92,7 +93,7 @@ npx skills add Celec7/beyond-code
 
 可选择整套安装或按需安装。技能正文使用英文，根目录说明提供中英两版。
 
-`grilling`、`teach`、`retro` 在 `SKILL.md` 中声明 `disable-model-invocation: true`，并在 `agents/openai.yaml` 中声明 `policy.allow_implicit_invocation: false`，分别供支持相应元数据的宿主表达仅用户触发的意图。宿主行为可能不同，正文也要求用户主动请求。其他技能保持默认发现方式。这些是指令与调用配置，不是机械编辑拦截。
+`decision-records-setup`、`grilling`、`teach`、`retro` 在 `SKILL.md` 中声明 `disable-model-invocation: true`，并在 `agents/openai.yaml` 中声明 `policy.allow_implicit_invocation: false`，分别供支持相应元数据的宿主表达仅用户触发的意图。宿主行为可能不同，正文也要求用户主动请求。其他技能保持默认发现方式。这些是指令与调用配置，不是机械编辑拦截。
 
 本地运行 `node scripts/check-skills.mjs` 检查结构：frontmatter、必需段落、链接、目录与资源。其中的 error 是结构性问题，warning（如篇幅）仅为建议。行为效果留待日常开发检验，当前不宣称已验证跨模型或跨宿主的遵循效果。
 
