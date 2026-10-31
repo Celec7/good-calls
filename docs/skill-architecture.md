@@ -2,7 +2,7 @@
 
 ## Summary
 
-This document defines how the Beyond Code skill suite is structured and how its skills are written, reviewed, and maintained. It exists so the suite can absorb methodology from other collections, such as the DeepSeek Harness `.agents/skills/` set, without copying one repository's facts into skills that must work everywhere.
+This document defines how the Good Calls skill suite is structured and how its skills are written, reviewed, and maintained. It exists so the suite can absorb methodology from other collections, such as the DeepSeek Harness `.agents/skills/` set, without copying one repository's facts into skills that must work everywhere.
 
 The contract has one core idea: separate portable judgment from project facts. Judgment lives in `SKILL.md`; facts stay with the project's existing documentation and are referenced by role; concrete examples live in optional references. `README.md` owns the catalog and the invocation summary. This document owns the structure and the authoring rules.
 

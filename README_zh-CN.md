@@ -1,26 +1,74 @@
-# Beyond Code
+# Good Calls
 
-[![skills.sh](https://skills.sh/b/Celec7/beyond-code)](https://skills.sh/Celec7/beyond-code)
+**面向 Coding Agent 的软件工程判断力。**
 
-以十九个独立技能，构成 agent 辅助软件工程的工作流主线。
+*好的代码，始于好的判断。*
+*更少繁文缛节，更多理性决策。*
+
+[![skills.sh](https://skills.sh/b/Celec7/good-calls)](https://skills.sh/Celec7/good-calls)
+
+一组经过实际开发经验筛选、由 Agent 按需调用、旨在改善软件工程判断的十九个独立技能。原名 Beyond Code。
 
 [English](README.md) | 中文
 
+## 为什么需要这个项目
+
+随着模型能力的持续增强，编写出极少语法或算法 bug 的代码已不再困难。但生成可运行的代码，并不等同于完成软件工程交付。
+
+在用户初始且往往模糊的需求与可靠交付的软件之间，始终存在一条显著的软件工程鸿沟：
+
+- 在动工之前理清真实问题与范围，而不是盲目猜测用户意图；
+- 将复杂变更拆解为可独立验证的切片，而非堆积高风险的单体修改；
+- 凭借系统化证据排查问题根因，而非治标不治本的修补；
+- 权衡何时应当引入抽象，何时应保持简单；
+- 辨别测试断言是提供了真实的行之有效的证明，还是仅仅带来了表面的虚假安全感；
+- 记录无法从最终代码推导出的架构取舍与决策背景。
+
+在通向通用人工智能的演进过程中，模型尚无法单纯通过预测下一个 Token 来弥合这种软件工程层面的断层。开发者作为人机协同中的核心中间层，关键责任就是打通从需求到交付的完整路径。
+
+Good Calls 的定位是作为开发者的辅助工程工具：在关键决策点为 Agent 与开发者提供沉淀自实践的判断方法，而不是接管开发流程，更不是要求所有任务都服从一套机械的仪式。
+
 ## 设计哲学
 
-Beyond Code 提供贯穿需求澄清、设计、规划、实现反馈、审查和决策维护的工程方法与约定。技能的价值在于改变判断：何时追问、怎样拆分工作、什么证据可信、哪些理由值得保留。普通编码与工具操作交给 agent 本身，需要专项知识时按需搭配其他技能。
+### 更少繁文缛节，更多理性决策
 
-技能设计与对话方法参考 Matt Pocock，工程纪律与决策记录参考 DeepSeek Harness。指令直接、职责明确，不加 hook，不要求初始化、总入口技能或固定调用链。
+高质量的软件源于严谨的工程取舍，而非对繁琐流程的顺从。指令保持直接、模块化且边界清晰。套件不设置强制的前置钩子、中心化路由技能或固定的调用链条。
 
-每个技能都能使用请求、对话、代码和相关记录中已有的信息。缺少信息就调查或澄清具体缺口，不重走前面的流程。调用技能不扩大任务范围，也不自动授予实施权限；已经获得的授权在其范围内继续有效。
+### 技能的价值在于改变决策
 
-## 技能
+一条软件工程原则只有在它能实质性改善 Agent 的具体决策时，才值得写进技能：何时提问、如何拆分、什么证据可信，以及哪些理由必须保留。如果模型原生就能稳定做好一项判断，重复灌输只会徒增上下文负担。
 
-“自主”表示 agent 可以在适用时选择，也允许用户显式调用，并非每个任务都要执行。“仅用户”表示对话方式的改变由用户发起。
+### 辅助引导，而非接管工作流
+
+Agent 与开发者应当保留对开发过程的完全自主权。一个简单的单行修补，绝不应该仅仅因为安装了技能库，就被迫经历需求草案、形式化计划、多角色审查与归档记录等整套流程。不加载任何技能往往也是正确的决策。
+
+### 避免上下文与协议污染
+
+在早期的迭代中，项目曾尝试过严格的阶段门禁、任务台账与偏差阈值。实践表明，这些机制极易分散 Agent 的核心注意力。当 Agent 将大量的上下文预算消耗在记录框架状态、同步台账文件和证明自己符合流程规范上时，代码本身的质量与架构的可维护性反而被边缘化了。Good Calls 坚决精简流程负担，任务临时状态只保留在正常的对话上下文中。
+
+### 面向能力更强的模型演进
+
+随着基座模型推理能力的提升，技能不应固化过去为弥补模型缺陷而设的操作规程。模型越强，技能越应聚焦于难以自动推导的高价值工程取舍与边界判断，将具体的操作步骤留给模型的原生能力。
+
+关于项目历史演化细节与对照实验记录，请参阅 [docs/design-philosophy.md](docs/design-philosophy.md)。
+
+## 是什么与不是什么
+
+- **它是**一组独立、按需调用的工程判断技能，涵盖需求澄清、架构设计、任务拆分、代码调试、可靠测试、审查及文档等维度。
+- **它不是**刚性的软件开发工作流引擎或生命周期编排器。
+- **它不是**多 Agent 蜂群编排系统或后台调度服务。
+- **它不是**基于文件的 CLI 状态管理协议或任务台账系统。
+- **它不是**面面俱到的软件工程理论百科全书。
+
+## 技能目录
+
+调用方式说明：
+- **自主**：Agent 可以在适用场景下自主识别并选择，开发者也可随时显式调用。
+- **仅用户**：用于对话模式的显式切换，必须由用户主动发起。
 
 ### 基础（Foundation）
 
-基础技能提供其他技能复用的判断。
+基础技能承载被其他技能复用的底层工程判断。
 
 | 技能 | 提供的判断 | 调用方式 |
 | --- | --- | --- |
@@ -30,6 +78,8 @@ Beyond Code 提供贯穿需求澄清、设计、规划、实现反馈、审查�
 | [trim-reasoning-leakage](skills/trim-reasoning-leakage/SKILL.md) | 清除以创作会话为视角的散文痕迹 | 自主 |
 
 ### 领域（Domain）
+
+领域技能提供贯穿典型软件开发阶段的工程判断方法。
 
 | 技能 | 提供的判断 | 调用方式 |
 | --- | --- | --- |
@@ -48,54 +98,65 @@ Beyond Code 提供贯穿需求澄清、设计、规划、实现反馈、审查�
 
 ### 模式（Modes）
 
+模式技能提供用于探索、教学和复盘的特定对话状态。
+
 | 技能 | 提供的判断 | 调用方式 |
 | --- | --- | --- |
 | [grilling](skills/grilling/SKILL.md) | 深入探索想法，不强加目标，不替用户编造动机 | 仅用户 |
 | [teach](skills/teach/SKILL.md) | 通过解释与应用建立理解 | 仅用户 |
 | [retro](skills/retro/SKILL.md) | 从实际工作中提炼具体改进 | 仅用户 |
 
-套件的结构、三层内容模型、编写规则，以及任务流程与记录归属，见 [docs/skill-architecture.md](docs/skill-architecture.md)。
+任务可以从任意位置介入。明确的故障可以直接诊断，已有的代码改动可以直接审查。让小任务保持精悍。
 
-任务可以从任意位置进入。明确的故障可以直接诊断，已有改动可以直接审查。设计、规划和验证按需要使用，不组成一串审批仪式。小任务保持简短。
-
-## 配合其他技能
-
-将 Beyond Code 作为工程工作流的主线，按具体需要从 [Matt Pocock 的技能集](https://github.com/mattpocock/skills)中选择补充：
-
-| 辅助技能 | 适用场景 | 与主线的衔接 |
-| --- | --- | --- |
-| [writing-for-agents](https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-for-agents/SKILL.md) | 编写技能或 AGENTS.md 等 agent 指令 | 补充触发描述、信息层级和无效指令删减方法，不作为其他技能的前置条件。 |
-| [prototype](https://github.com/mattpocock/skills/blob/main/skills/engineering/prototype/SKILL.md) | 交互探索状态行为，或比较 UI 变体 | 提供具体实验形式。先约定产物位置与保留方式；其默认流程包含仓库内原型和临时分支提交，需要相应授权。 |
-| [wizard](https://github.com/mattpocock/skills/blob/main/skills/engineering/wizard/SKILL.md) | 引导需要人工访问或决定的配置步骤 | 生成交互脚本，仅用于确实需要人操作的步骤；需要可复用的配置产物时才保留脚本。 |
-| [handoff](https://github.com/mattpocock/skills/blob/main/skills/productivity/handoff/SKILL.md) | 明确要求向新 agent 或新会话交接 | 在系统临时目录生成脱敏交接说明，引用已有记录，不另建一套任务历史。 |
-
-这些建议基于本套件审阅过的 Matt 源文件，使用前应检查所选版本的具体指令。其他技能集可以补充前端设计、框架知识、浏览器测试或文档制作。辅助技能都是可选能力，不是依赖项，也不是工作流缺失的阶段。
-
-Agent 可以在当前任务中使用专项指导，再带着结果和证据继续推进。Beyond Code 提供工作流原则，辅助技能提供具体方法或工具知识。调用辅助技能不产生扩大范围、发布或另建一套记录体系的权限。
-
-建议按需选择辅助技能，不整套叠加重叠的技能集。对于 `tdd`、`code-review`、`codebase-design` 等同名技能，只保留一个有效定义；采用本工作流时，选用 Beyond Code 的版本。同时检查辅助技能的依赖：名称不同，也可能调用同名技能，或规定不同的确认、产物和提交行为。冲突应根据用户选择与项目约定解决，不能假定安装顺序决定优先级。
-
-## 代码、文档与决策
-
-代码是实际行为的唯一真源。需求与有效决策描述预期行为；两者不一致时，可能是实现缺陷，不能直接改写需求。测试提供证据，本身也可能错误。
-
-正式文档沿用项目已有结构。没有结构且确实需要建立时，由 `canonical-docs` 提供适合的方案供用户选择，其中包含面向大型或 agent 密集语料库的可选文档分层。不把空目录树作为初始化步骤。
-
-决策记录保存动机、约束、真实替代方案、后果和重新考虑的条件。已有有效的 ADR/RFC 约定就沿用；没有时，`decision-records` 使用 `docs/agents/notes/{proposed,implemented,rejected,archived}/YYYY-MM-DD-topic.md`，按需创建目录。用户触发的 `decision-records-setup` 可建立共享、本地专用或混合存储约定。本地记录只指导个人环境；需要约束协作者的决定应进入共享记录。不要求索引、分类树或配套元数据。归档是冻结的历史，不作为当前依据。
-
-临时状态默认留在对话中。交接确需文件、项目又没有约定时，`plan` 提供一个可选的 `docs/agents/work/<task>.md` 工作记录，注明负责人和清理或提炼时点，不默认提交。工作结束后，将有用决定放入其归属，移除本任务的可丢弃状态。任何技能调用都不强制产生文件。
+关于三层架构（Method / Binding / Calibration）契约及编写规范，见 [docs/skill-architecture.md](docs/skill-architecture.md)。
 
 ## 安装与调用
 
 ```bash
-npx skills add Celec7/beyond-code
+npx skills add Celec7/good-calls
 ```
 
-可选择整套安装或按需安装。技能正文使用英文，根目录说明提供中英两版。
+*注：对于仍在使用旧路径的项目，`npx skills add Celec7/beyond-code` 依然保持兼容。*
 
-`decision-records-setup`、`grilling`、`teach`、`retro` 在 `SKILL.md` 中声明 `disable-model-invocation: true`，并在 `agents/openai.yaml` 中声明 `policy.allow_implicit_invocation: false`，分别供支持相应元数据的宿主表达仅用户触发的意图。宿主行为可能不同，正文也要求用户主动请求。其他技能保持默认发现方式。这些是指令与调用配置，不是机械编辑拦截。
+可选择整套安装或按需单独安装。技能正文统一使用英文编写，根目录文档提供中英双语。
 
-本地运行 `node scripts/check-skills.mjs` 检查结构：frontmatter、必需段落、链接、目录与资源。其中的 error 是结构性问题，warning（如篇幅）仅为建议。行为效果留待日常开发检验，当前不宣称已验证跨模型或跨宿主的遵循效果。
+### 宿主环境元数据
+
+对于 `decision-records-setup`、`grilling`、`teach` 和 `retro`，其 `SKILL.md` 声明了 `disable-model-invocation: true`，并在 `agents/openai.yaml` 中声明了 `policy.allow_implicit_invocation: false`。这些元数据为支持该规范的宿主环境提供仅用户调用的意图表达。正文同样明确要求用户主动发起。其他技能保持默认的自动发现。
+
+在本地运行以下命令以检查结构规范与链接完整性：
+
+```bash
+node scripts/check-skills.mjs
+```
+
+## 配合其他技能使用
+
+Good Calls 专注于核心软件工程判断。面对特定垂直领域需求时，可按需搭配 [Matt Pocock 的技能集](https://github.com/mattpocock/skills) 或社区其他工具：
+
+| 辅助技能 | 适用场景 | 与本套件的衔接 |
+| --- | --- | --- |
+| [writing-for-agents](https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-for-agents/SKILL.md) | 编写技能或 AGENTS.md 等指令 | 补充触发条件描述、信息层级和无效指令删减方法，不作为其他技能的前置条件。 |
+| [prototype](https://github.com/mattpocock/skills/blob/main/skills/engineering/prototype/SKILL.md) | 交互探索状态行为，或比较 UI 变体 | 提供具体的原型实验形式；先约定产物留存方式，默认使用临时分支。 |
+| [wizard](https://github.com/mattpocock/skills/blob/main/skills/engineering/wizard/SKILL.md) | 引导需要人工配置的敏感步骤 | 生成交互式脚本，仅用于确需人工操作的步骤，脚本可在复用场景下保留。 |
+| [handoff](https://github.com/mattpocock/skills/blob/main/skills/productivity/handoff/SKILL.md) | 显式交接给新 Agent 或新会话 | 在系统临时目录生成脱敏交接记录，引用现有文档，不另建第二套任务历史。 |
+
+建议根据具体任务按需组合，避免盲目批量安装重叠的技能集。若遇到同名技能（如 `tdd` 或 `code-review`），建议根据项目约定明确保留单一版本。
+
+## 代码、文档与决策
+
+- **代码是实际行为的唯一真源**：需求与经批准的决策描述预期行为。当二者出现冲突时，往往说明实现存在缺陷，而非随意修改需求的理由。测试提供检验依据，但测试本身也可能存在漏洞。
+- **文档尊重项目已有结构**：当项目缺乏文档结构且确需建立时，`canonical-docs` 提供标准分层建议。不在初始化阶段创建空目录结构。
+- **决策采用轻量化记录**：当持久取舍无法从代码推导时，`decision-records` 采用 `docs/agents/notes/{proposed,implemented,rejected,archived}/YYYY-MM-DD-topic.md`（或仓库已有的 ADR 结构）记录上下文与后果。
+- **任务状态保持瞬态**：临时工作笔记保留在会话中。交接确需落地文件时，`plan` 提供可选的 `docs/agents/work/<task>.md` 模板，在任务完成时进行提炼或清理。
+
+## 局限说明
+
+Good Calls 不承诺能够自动消除所有代码缺陷，也无法替代开发者的工程审校：
+
+- **基座模型依赖**：技能的发挥高度取决于底层模型的推理与理解能力。技能提供判断方法，但无法突破模型本身的智能边界。
+- **情境收益差异**：技能的收益建立在任务存在真实歧义或非平凡工程取舍的前提下。面对机械简单的编辑，加载技能带来的增益微乎其微。
+- **宿主支持程度**：仅用户调用等控制策略依赖宿主环境对 tool-calling 及元数据（`openai.yaml`、frontmatter）的实现，不同客户端的表现可能存在细微差异。
 
 ## 开源协议
 

@@ -1,26 +1,72 @@
-# Beyond Code
+# Good Calls
 
-[![skills.sh](https://skills.sh/b/Celec7/beyond-code)](https://skills.sh/Celec7/beyond-code)
+**Better engineering judgment for coding agents.**
 
-The main workflow for agent-assisted software engineering, expressed through nineteen independent skills.
+*Good code starts with good calls.*
+*Less ceremony. Better decisions.*
+
+[![skills.sh](https://skills.sh/b/Celec7/good-calls)](https://skills.sh/Celec7/good-calls)
+
+A collection of nineteen independent skills that help coding agents make sound engineering decisions without imposing a workflow. Formerly Beyond Code.
 
 English | [中文](README_zh-CN.md)
 
+## Why this exists
+
+Modern coding agents can generate code with few low-level syntax or algorithmic bugs. However, generating runnable code is not the same as delivering software.
+
+Between an ambiguous user request and a reliable production deployment lies a significant software engineering gap:
+
+- Discerning what needs clarification before touching code, rather than guessing intent.
+- Decomposing changes into verifiable, decoupled slices instead of high-risk monolithic edits.
+- Diagnosing root causes with systematic evidence rather than patching symptoms.
+- Knowing when to introduce an abstraction and when to keep code simple.
+- Evaluating whether test assertions provide genuine proof or superficial reassurance.
+- Deciding which engineering trade-offs warrant lasting architectural records.
+
+Developers act as the essential bridge across this gap. The purpose of Good Calls is to assist developers and agents at critical decision points. The skills serve an auxiliary role: providing disciplined engineering judgment when needed, without taking over the developer's workflow or forcing tasks into a rigid process.
+
 ## Philosophy
 
-Beyond Code provides the engineering methods and conventions that guide work from clarification and design through planning, implementation feedback, review, and decision maintenance. Skills earn their place by changing a decision: when to ask, how to divide work, what evidence to trust, and which reasons to retain. Routine coding and tool operations remain the agent's work; specialized skills can supply additional expertise where needed.
+### Better judgment. Less ceremony.
 
-The suite draws on Matt Pocock's skill design and conversational methods, and DeepSeek Harness's engineering discipline and decision-record practices. Instructions are direct and scoped. There are no hooks, mandatory setup, router skills, or required invocation chains.
+Good software results from sound engineering choices, not bureaucratic compliance. Instructions are direct, modular, and scoped. There are no mandatory startup hooks, central router skills, or compulsory execution chains.
 
-Each skill works with the information supplied in the request, conversation, code, or relevant records. Missing information calls for a specific investigation or question, not a replay of earlier stages. Invoking a skill does not widen the task or grant permission to implement. Existing authorization remains valid within its bounds.
+### Skills earn their place by changing a decision
+
+A software engineering principle is only worth placing in a skill if it materially improves an agent's decision: when to ask, how to divide work, what evidence to trust, and which reasons to preserve. If a capable model already handles a situation reliably, repeating that rule only consumes context without adding value.
+
+### Guidance over control
+
+An agent retains full autonomy over how it executes. A simple one-line fix should never be forced through specification drafting, formal planning, multi-role review, and archival ceremonies simply because a skill suite is installed. Not invoking any skill is often the correct choice.
+
+### Avoiding context and protocol pollution
+
+Early iterations of this project experimented with strict phase gates, task ledgers, and deviation thresholds. In practice, these mechanisms distracted agents from the real engineering task. When an agent spends its attention budget tracking framework state, updating ledger files, and proving compliance with a protocol, code quality and architectural clarity suffer. Good Calls keeps process overhead minimal and leaves task state in normal conversation.
+
+### Adapting to stronger models
+
+As underlying models advance, skills should not cling to outdated workarounds designed for past model limitations. The stronger a model becomes, the more skills should focus on non-trivial engineering trade-offs and judgment, leaving mechanical execution to the model's native reasoning.
+
+For a detailed history of the project's evolution and paired subagent experiments, see [docs/design-philosophy.md](docs/design-philosophy.md).
+
+## What it is and what it is not
+
+- **It is** a collection of independent, on-demand engineering skills that provide decision methods for clarification, design, planning, debugging, testing, review, and documentation.
+- **It is not** a rigid workflow engine or lifecycle orchestrator.
+- **It is not** a multi-agent swarm framework or background service manager.
+- **It is not** a persistent CLI state management protocol or file-based task ledger.
+- **It is not** an exhaustive encyclopedia of software engineering rules.
 
 ## Skills
 
-“Automatic” means the agent may select the skill when relevant; users can also invoke it explicitly. It does not mean every task runs every skill. “User only” reserves a change in conversational mode for the user.
+Invocation modes:
+- **Automatic**: The agent may select the skill when relevant; users can also invoke it explicitly.
+- **User only**: Reserved for changes in conversational mode, requiring an explicit user request.
 
 ### Foundation
 
-Foundation skills carry judgment the other skills reuse.
+Foundation skills carry judgment that other skills reuse.
 
 | Skill | Judgment it provides | Invocation |
 | --- | --- | --- |
@@ -30,6 +76,8 @@ Foundation skills carry judgment the other skills reuse.
 | [trim-reasoning-leakage](skills/trim-reasoning-leakage/SKILL.md) | Remove prose that takes the authoring session's vantage | Automatic |
 
 ### Domain
+
+Domain skills provide engineering methods across typical development phases.
 
 | Skill | Judgment it provides | Invocation |
 | --- | --- | --- |
@@ -48,54 +96,67 @@ Foundation skills carry judgment the other skills reuse.
 
 ### Modes
 
+Modes offer distinct conversational postures for exploration, learning, and reflection.
+
 | Skill | Judgment it provides | Invocation |
 | --- | --- | --- |
 | [grilling](skills/grilling/SKILL.md) | Explore ideas without imposing a goal or inventing the user's motives | User only |
 | [teach](skills/teach/SKILL.md) | Build understanding through explanation and application | User only |
 | [retro](skills/retro/SKILL.md) | Derive concrete improvements from real work | User only |
 
-The suite's structure, its three content layers, its authoring rules, and its task flow and record ownership live in [docs/skill-architecture.md](docs/skill-architecture.md).
+A task can enter anywhere. A clear defect can start directly with diagnosis; an existing pull request can start with review. Small tasks stay small.
 
-A task can enter anywhere. A clear bug report can start with diagnosis; an existing change can start with review. Design, planning, and verification are methods to use where needed, not a sequence of approval ceremonies. Small tasks stay small.
-
-## Pairing with other skills
-
-Use Beyond Code as the main engineering workflow and select companions from [Matt Pocock's skills](https://github.com/mattpocock/skills) for specific needs:
-
-| Companion | When it helps | Fit with this workflow |
-| --- | --- | --- |
-| [writing-for-agents](https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-for-agents/SKILL.md) | Writing skills or agent instructions such as AGENTS.md | Adds guidance on discovery, information hierarchy, and removing ineffective instructions; it is not a prerequisite for other skills. |
-| [prototype](https://github.com/mattpocock/skills/blob/main/skills/engineering/prototype/SKILL.md) | Exploring state behavior interactively or comparing UI variants | Supplies concrete experiment formats. Agree on artifact placement and retention; its default workflow includes repository-local prototypes and a throwaway-branch commit, which need appropriate authorization. |
-| [wizard](https://github.com/mattpocock/skills/blob/main/skills/engineering/wizard/SKILL.md) | Guiding setup steps that require human access or decisions | Generates an interactive script. Use it for genuinely human-only steps and retain the script only when a reusable setup deliverable is wanted. |
-| [handoff](https://github.com/mattpocock/skills/blob/main/skills/productivity/handoff/SKILL.md) | Explicitly handing work to a fresh agent or session | Produces a redacted handoff in the OS temporary directory; reference existing records instead of creating a second task history. |
-
-These suggestions reflect the Matt sources reviewed for this suite; check the selected version's instructions before use. Other skill collections can contribute frontend design, framework expertise, browser testing, or document production. Companions are optional capabilities, not dependencies or missing stages in the workflow.
-
-The agent can use specialist guidance within the current task, then carry its result and evidence into the continuing work. Beyond Code supplies the workflow principles; the companion supplies its particular method or tool knowledge. A companion does not create permission to expand scope, publish, or establish a parallel record system.
-
-Select companions individually rather than installing overlapping suites wholesale. For shared names such as `tdd`, `code-review`, or `codebase-design`, choose one active definition; use Beyond Code's version when adopting this workflow. Check dependencies in companion skills too: a different name may still call a shared skill or prescribe different approval, artifact, or commit behavior. Resolve those conflicts through user and project conventions, not by assuming installation order establishes precedence.
-
-## Code, documentation, and decisions
-
-Code is the source of truth for actual behavior. Requirements and valid decisions describe intended behavior; a mismatch may be a bug, not permission to rewrite the requirement. Tests provide evidence and can themselves be wrong.
-
-Formal documentation follows the project's existing structure. If there is none and a structure is needed, `canonical-docs` offers suitable options for the user to choose, including an optional documentation tier taxonomy for larger or agent-heavy corpora. No empty documentation tree is created as setup.
-
-Decision records preserve motivation, constraints, real alternatives, consequences, and reasons to reconsider. Follow an active ADR/RFC convention when one exists. Otherwise, `decision-records` uses `docs/agents/notes/{proposed,implemented,rejected,archived}/YYYY-MM-DD-topic.md`, creating only needed directories. The user-invoked `decision-records-setup` can establish shared, local-only, or hybrid storage. Local-only records guide one developer's environment; shared decisions belong in tracked records. No index, classification tree, or sidecar is required. Archived records are frozen history, not current authority.
-
-Keep temporary state in conversation by default. When a handoff needs a file and no project convention exists, `plan` offers one optional `docs/agents/work/<task>.md` record. Name its owner and cleanup or promotion point. Do not assume it should be committed. On closure, preserve useful decisions in their owner and remove disposable task-owned state. No skill invocation requires a file output.
+For architecture rules, the Method/Binding/Calibration separation, and authoring constraints, see [docs/skill-architecture.md](docs/skill-architecture.md).
 
 ## Installation and invocation
 
 ```bash
-npx skills add Celec7/beyond-code
+npx skills add Celec7/good-calls
 ```
 
-Select the whole suite or the individual skills you need. Skill bodies are English; the root catalog is available in both languages.
+*Note: For repositories still referencing the earlier package path, `npx skills add Celec7/beyond-code` remains compatible.*
 
-For `decision-records-setup`, `grilling`, `teach`, and `retro`, `SKILL.md` declares `disable-model-invocation: true`, and `agents/openai.yaml` declares `policy.allow_implicit_invocation: false`. These encode user-only intent for hosts that support the respective metadata. Host behavior varies; the skill text also requires a user request. Other skills retain default discovery. This is instruction and invocation configuration, not mechanical edit prevention.
+You can install the entire collection or select individual skills. Skill bodies are written in English; the catalog documentation is maintained in both English and Chinese.
 
-Run `node scripts/check-skills.mjs` to check the structure locally: frontmatter, required sections, links, catalog, and resources. Its errors are structural; its warnings, such as the word budget, are advisory. Behavioral evaluation will come from development use; the suite makes no claim of tested compliance across models or hosts.
+### Host metadata
+
+For `decision-records-setup`, `grilling`, `teach`, and `retro`, `SKILL.md` declares `disable-model-invocation: true`, and `agents/openai.yaml` declares `policy.allow_implicit_invocation: false`. These flags encode user-only intent for supporting platforms. The skill instructions also instruct models to require an explicit user prompt. Other skills remain automatically discoverable.
+
+To verify structural integrity locally, run:
+
+```bash
+node scripts/check-skills.mjs
+```
+
+This checks frontmatter, required sections, valid relative links, catalog alignment, and formatting rules.
+
+## Pairing with companion skills
+
+Good Calls focuses on core software engineering judgment. For specialized tasks, select companion skills from [Matt Pocock's skills](https://github.com/mattpocock/skills) or other community sources:
+
+| Companion | When it helps | Fit with this workflow |
+| --- | --- | --- |
+| [writing-for-agents](https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-for-agents/SKILL.md) | Writing skills or agent instructions such as AGENTS.md | Adds guidance on discovery, information hierarchy, and removing ineffective instructions; not a prerequisite for other skills. |
+| [prototype](https://github.com/mattpocock/skills/blob/main/skills/engineering/prototype/SKILL.md) | Exploring state behavior interactively or comparing UI variants | Supplies experiment formats. Agree on artifact retention beforehand; default behavior includes temporary branches and repository-local prototypes. |
+| [wizard](https://github.com/mattpocock/skills/blob/main/skills/engineering/wizard/SKILL.md) | Guiding setup steps that require human credentials or actions | Generates an interactive script; use it for genuinely human-only steps and retain only when reusable. |
+| [handoff](https://github.com/mattpocock/skills/blob/main/skills/productivity/handoff/SKILL.md) | Explicitly handing work over to a fresh agent or session | Produces a redacted handoff in the OS temporary directory, referencing existing records rather than creating a parallel history. |
+
+Select companions individually rather than installing overlapping packages wholesale. If duplicate skill names exist (such as `tdd` or `code-review`), choose one active definition and configure project conventions accordingly.
+
+## Code, documentation, and decisions
+
+- **Code is the source of truth for actual behavior.** Requirements and approved decisions describe intended behavior. A discrepancy may indicate a bug rather than permission to change requirements. Tests provide evidence and can themselves be flawed.
+- **Documentation respects the project's structure.** When no convention exists and documentation is needed, `canonical-docs` provides standard options, including an optional tier taxonomy for larger codebases. No empty scaffold is created on setup.
+- **Decisions belong in lightweight records.** When lasting rationale cannot be deduced from code, `decision-records` records the context, options, and consequences using `docs/agents/notes/{proposed,implemented,rejected,archived}/YYYY-MM-DD-topic.md` (or the repository's existing ADR format).
+- **Task state remains ephemeral.** Keep temporary notes in conversational context. When a shared handover file is needed, `plan` offers an optional `docs/agents/work/<task>.md` template that is cleaned up or promoted upon task completion.
+
+## Limitations
+
+Good Calls does not promise bug-free software or replace developer judgment.
+
+- **Model dependency**: The effectiveness of each skill depends on the underlying model's reasoning capabilities. While skills provide decision criteria, they cannot force a model to execute beyond its baseline reasoning limits.
+- **Contextual value**: Skills earn their place only when a task involves meaningful ambiguity or non-trivial engineering trade-offs. For trivial edits, loading skills offers negligible gain.
+- **Host support**: Invocation controls rely on platform-specific tool-calling and metadata support (`openai.yaml`, frontmatter conventions). Host behavior across different agent environments may vary.
 
 ## License
 
