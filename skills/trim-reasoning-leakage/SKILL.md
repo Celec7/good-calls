@@ -25,9 +25,18 @@ This skill is guidance, not a script. Reasoning leakage is prose whose vantage i
 
 For every suspect passage ask: could a reader at HEAD, with no session transcript, PR thread, or uncommitted draft, resolve every reference and verify every claim? If not, restate the surviving facts from the repository's vantage and delete the transcript around them. A dead citation rarely carries zero propositions: delete clauses, not sentences, when propositions share a line, and delete the passage only when no factual clause remains.
 
-### Taxonomy
+### The slop checklist
 
-Name the class before fixing it: dead design-session citations, stack or PR vantage, change narration and version stamps, review choreography, reviewer-addressed justification, restatement and derivation transcripts, hedges and planning residue, and authoring-language slips. [examples](references/examples.md) works one case per class.
+Identify and eliminate these session-vantage patterns:
+
+- **Change narration:** phrases like "in this PR", "previously", "was originally X but now Y", "in this update", "fixed an issue where". State the current behavior as present fact, or move the change story to the commit message.
+- **Reasoning transcripts:** step-by-step implementation narration, derivation proofs, or explaining why an obvious branch was chosen. Move durable trade-offs to [adr](../adr/SKILL.md); delete the rest.
+- **Review choreography:** "as requested", "per reviewer comments", "addressed feedback", "this cut".
+- **Status stamps:** "(implemented!)", "(new in v2)", "WIP", "(planned for next sprint)".
+- **Code restatements:** repeating types, parameter lists, or obvious control flow in prose.
+- **Uncommitted plans:** forward-looking promises, speculative roadmaps, or uncommitted branch references.
+
+See [examples](references/examples.md) for calibration on each class.
 
 ### What is not leakage
 
@@ -52,7 +61,7 @@ Generated catalogs, snapshots, and fixtures are derivatives: fix the source temp
 ## Validate and report
 
 - Re-run the probes in [recall batteries](references/recall-batteries.md); expect only sanctioned keeps and this skill's own quoted evidence.
-- Confirm every remaining citation resolves at HEAD.
+- Confirm every remaining citation resolves at HEAD and no session-vantage slop remains.
 - Report the scope inspected, passages fixed or kept, deliberate keeps, and unverified cases.
 
 ## References
