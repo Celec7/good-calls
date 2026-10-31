@@ -32,7 +32,7 @@ Compare the complete result: implementation, caller code, tests, configuration, 
 
 When removal is authorized and supported, account for exports, registrations, configuration, dependencies, fixtures, comments, and documentation belonging solely to it. Preserve behavior checks that still matter, even when their old implementation disappears.
 
-Update current explanations at their owner, and use [decision-records](../decision-records/SKILL.md) for related records: preserve unique reasons and distinguish full from partial supersession. Removing one implementation does not erase a surviving compatibility obligation or justify deleting its rationale.
+Update current explanations at their owner, and use [adr](../adr/SKILL.md) for related records: preserve unique reasons and distinguish full from partial supersession. Removing one implementation does not erase a surviving compatibility obligation or justify deleting its rationale.
 
 ## Validate and report
 

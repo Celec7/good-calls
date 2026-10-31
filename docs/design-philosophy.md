@@ -101,7 +101,7 @@ The suite established a formal architectural contract (commit `4e36f0d` and `b5b
 - **Binding**: Project-specific facts, resolved dynamically from existing project documentation rather than duplicated in skill files.
 - **Calibration**: Concrete examples and reference scenarios under `references/`.
 
-Four foundation skills were introduced to own cross-cutting concerns: `skill-authoring`, `error-handling`, `prose-standard`, and `trim-reasoning-leakage`. With the subsequent addition of `decision-records-setup` (commit `c1e9edf`), the suite reached its current catalog of nineteen independent skills.
+Four foundation skills were introduced to own cross-cutting concerns: `skill-authoring`, `error-handling`, `prose-standard`, and `trim-reasoning-leakage`. The suite structured architecture decision records into `adr`, `adr-setup`, and `adr-archive`, reaching a catalog of twenty independent skills.
 
 ## 4. Relationship to Other Tools
 

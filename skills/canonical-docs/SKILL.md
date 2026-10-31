@@ -11,7 +11,7 @@ This skill is guidance, not a script. Give useful explanations a clear owner. Co
 
 - The sentence-level contract of a passage. Use [prose-standard](../prose-standard/SKILL.md).
 - Prose that takes the authoring session's vantage. Use [trim-reasoning-leakage](../trim-reasoning-leakage/SKILL.md).
-- The rationale for a design decision. Use [decision-records](../decision-records/SKILL.md).
+- The rationale for an architectural or engineering decision. Use [adr](../adr/SKILL.md).
 
 ## Inputs and authorization
 

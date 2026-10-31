@@ -126,7 +126,7 @@ The extraction procedure is owned by [skill-authoring](../skills/skill-authoring
 
 ## 11. Current state and gaps
 
-The suite has nineteen host-agnostic skills. Against this contract:
+The suite has twenty host-agnostic skills. Against this contract:
 
 - Bindings resolve from existing project documentation, so the suite ships no separate profile. This repository has no build, test, or lint entry points of its own; its conventions live in `README.md` and this document.
 - Foundation skills now own reasoning-leakage removal (`trim-reasoning-leakage`), the sentence-level prose contract (`prose-standard`), failure semantics (`error-handling`), and skill authoring (`skill-authoring`). Each carries calibration examples under its `references/`. Evidence and verification remains a document-level contract plus each skill's Validate and report section.
@@ -155,15 +155,15 @@ A task may enter at any stage. The transitions below are typical, not a required
 | Plan | `plan` | |
 | Implement and harden | the agent's own work, with `tdd`, `debug`, `error-handling`, `test-reliability`, `simplify` | `prose-standard`, `trim-reasoning-leakage` |
 | Review and land | `code-review`, `conventional-commit` | |
-| Record and reflect | `decision-records`, `decision-records-setup`, `canonical-docs`, `skill-authoring`, `retro` | |
+| Record and reflect | `adr`, `adr-setup`, `adr-archive`, `canonical-docs`, `skill-authoring`, `retro` | |
 
 Typical next steps, all optional:
 
 - `clarify` to `codebase-design` or `plan`.
-- `codebase-design` to `plan`, and to `decision-records` when a lasting choice is made.
-- `decision-records` follows an existing project convention; use `decision-records-setup` only when the user asks to establish or revise that convention.
+- `codebase-design` to `plan`, and to `adr` when a lasting choice is made.
+- `adr` follows an existing project convention; use `adr-setup` when the user asks to establish or revise that convention; use `adr-archive` to audit or archive historical records.
 - `plan` to implementation with `tdd`; at closure, promote durable output before removing the work record.
-- `code-review` to `conventional-commit`, and to `decision-records` for lasting rationale.
+- `code-review` to `conventional-commit`, and to `adr` for lasting rationale.
 - Any closure to `retro` when the user asks for it.
 
 ### One home per fact

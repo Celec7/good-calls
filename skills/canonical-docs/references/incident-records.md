@@ -1,6 +1,6 @@
 # Incident records
 
-A postmortem is documentation, not a decision record. The [decision record](../../decision-records/SKILL.md) owns the rationale and the rejected alternatives; the postmortem owns the failure story.
+A postmortem is documentation, not a decision record. The [ADR](../../adr/SKILL.md) owns the rationale and the rejected alternatives; the postmortem owns the failure story.
 
 ## When to write one
 

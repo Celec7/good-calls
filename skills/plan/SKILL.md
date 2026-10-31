@@ -38,7 +38,7 @@ On completion or abandonment, preserve worthwhile decisions in their owner and r
 
 - Check that every slice has a completion evidence and that its prerequisites exist and do not cycle.
 - Report the current plan, the open questions, and any assumption that still needs evidence.
-- Before removing a work record, promote what is durable: a lasting decision to [decision-records](../decision-records/SKILL.md), and an incident lesson to a postmortem under [canonical-docs](../canonical-docs/SKILL.md). Delete the rest.
+- Before removing a work record, promote what is durable: a lasting architectural choice to [adr](../adr/SKILL.md), and an incident lesson to a postmortem under [canonical-docs](../canonical-docs/SKILL.md). When the task implements an existing proposed record, move it to `implemented` and commit it in the same change as the code. Delete the rest.
 - Keep the plan in the conversation unless a handoff requires a record.
 
 ## References

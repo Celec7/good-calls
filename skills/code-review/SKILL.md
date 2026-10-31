@@ -36,7 +36,7 @@ Trace claimed behavior through real code. Look for unimplemented paths, unexplai
 
 Inspect whether tests exercise the changed behavior, whether mocks replace it, and whether assertions, skips, or exclusions hide a regression. Zero selected tests, unavailable environments, and stale output do not establish success.
 
-Reuse applicable evidence. Run the smallest missing check that matters, plus required checks; do not reflexively rerun the entire suite.
+Reuse applicable evidence. Run the smallest missing check that matters, plus required checks; do not reflexively rerun the entire suite. When a change implements a proposed decision record, confirm it was moved to implemented under [adr](../adr/SKILL.md), updated to present-tense reality, and included in the same diff.
 
 ### Make findings actionable
 

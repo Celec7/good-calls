@@ -13,7 +13,7 @@ An interface includes everything a caller must know: inputs and results, orderin
 
 - Removing existing complexity with a defined scope. Use [simplify](../simplify/SKILL.md).
 - A settled local choice with no material tradeoff.
-- Recording a lasting rationale. Use [decision-records](../decision-records/SKILL.md).
+- Recording a lasting rationale or architectural decision. Use [adr](../adr/SKILL.md).
 
 ## Inputs and authorization
 

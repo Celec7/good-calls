@@ -7,7 +7,7 @@
 
 [![skills.sh](https://skills.sh/b/Celec7/good-calls)](https://skills.sh/Celec7/good-calls)
 
-一组经过实际开发经验筛选、由 Agent 按需调用、旨在改善软件工程判断的十九个独立技能。原名 Beyond Code。
+一组经过实际开发经验筛选、由 Agent 按需调用、旨在改善软件工程判断的二十个独立技能。原名 Beyond Code。
 
 [English](README.md) | 中文
 
@@ -92,8 +92,9 @@ Agent 与开发者应当保留对开发过程的完全自主权。一个简单�
 | [test-reliability](skills/test-reliability/SKILL.md) | 控制时序、隔离、资源归属和清理 | 自主 |
 | [code-review](skills/code-review/SKILL.md) | 独立检查需求、实现和证据 | 自主 |
 | [canonical-docs](skills/canonical-docs/SKILL.md) | 让准确说明有合适且明确的归属 | 自主 |
-| [decision-records](skills/decision-records/SKILL.md) | 保存并维护无法从代码恢复的决策理由 | 自主 |
-| [decision-records-setup](skills/decision-records-setup/SKILL.md) | 基于项目现有文档建立 ADR 约定 | 仅用户 |
+| [adr](skills/adr/SKILL.md) | 保存并维护无法从代码恢复的决策理由 | 自主 |
+| [adr-setup](skills/adr-setup/SKILL.md) | 基于项目现有文档建立 ADR 约定 | 仅用户 |
+| [adr-archive](skills/adr-archive/SKILL.md) | 审计、精简、合并与归档历史决策记录 | 仅用户 |
 | [conventional-commit](skills/conventional-commit/SKILL.md) | 按选定的提交约定表达完整变更意图 | 自主 |
 
 ### 模式（Modes）
@@ -122,7 +123,7 @@ npx skills add Celec7/good-calls
 
 ### 宿主环境元数据
 
-对于 `decision-records-setup`、`grilling`、`teach` 和 `retro`，其 `SKILL.md` 声明了 `disable-model-invocation: true`，并在 `agents/openai.yaml` 中声明了 `policy.allow_implicit_invocation: false`。这些元数据为支持该规范的宿主环境提供仅用户调用的意图表达。正文同样明确要求用户主动发起。其他技能保持默认的自动发现。
+对于 `adr-setup`、`adr-archive`、`grilling`、`teach` 和 `retro`，其 `SKILL.md` 声明了 `disable-model-invocation: true`，并在 `agents/openai.yaml` 中声明了 `policy.allow_implicit_invocation: false`。这些元数据为支持该规范的宿主环境提供仅用户调用的意图表达。正文同样明确要求用户主动发起。其他技能保持默认的自动发现。
 
 在本地运行以下命令以检查结构规范与链接完整性：
 
@@ -147,7 +148,7 @@ Good Calls 专注于核心软件工程判断。面对特定垂直领域需求时
 
 - **代码是实际行为的唯一真源**：需求与经批准的决策描述预期行为。当二者出现冲突时，往往说明实现存在缺陷，而非随意修改需求的理由。测试提供检验依据，但测试本身也可能存在漏洞。
 - **文档尊重项目已有结构**：当项目缺乏文档结构且确需建立时，`canonical-docs` 提供标准分层建议。不在初始化阶段创建空目录结构。
-- **决策采用轻量化记录**：当持久取舍无法从代码推导时，`decision-records` 采用 `docs/agents/notes/{proposed,implemented,rejected,archived}/YYYY-MM-DD-topic.md`（或仓库已有的 ADR 结构）记录上下文与后果。
+- **决策采用轻量化记录**：当持久取舍无法从代码推导时，`adr` 采用 `docs/agents/notes/{proposed,implemented,rejected,archived}/YYYY-MM-DD-topic.md`（或仓库已有的 ADR 结构）记录上下文与后果。随代码交付时将 proposed 推进为 implemented。
 - **任务状态保持瞬态**：临时工作笔记保留在会话中。交接确需落地文件时，`plan` 提供可选的 `docs/agents/work/<task>.md` 模板，在任务完成时进行提炼或清理。
 
 ## 局限说明

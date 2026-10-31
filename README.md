@@ -7,7 +7,7 @@
 
 [![skills.sh](https://skills.sh/b/Celec7/good-calls)](https://skills.sh/Celec7/good-calls)
 
-A collection of nineteen independent skills that help coding agents make sound engineering decisions without imposing a workflow. Formerly Beyond Code.
+A collection of twenty independent skills that help coding agents make sound engineering decisions without imposing a workflow. Formerly Beyond Code.
 
 English | [中文](README_zh-CN.md)
 
@@ -90,8 +90,9 @@ Domain skills provide engineering methods across typical development phases.
 | [test-reliability](skills/test-reliability/SKILL.md) | Control timing, isolation, resource ownership, and teardown | Automatic |
 | [code-review](skills/code-review/SKILL.md) | Inspect requirements, implementation, and evidence independently | Automatic |
 | [canonical-docs](skills/canonical-docs/SKILL.md) | Give accurate explanations one appropriate owner | Automatic |
-| [decision-records](skills/decision-records/SKILL.md) | Preserve and maintain reasons that code cannot recover | Automatic |
-| [decision-records-setup](skills/decision-records-setup/SKILL.md) | Establish a project's ADR convention from its existing documentation | User only |
+| [adr](skills/adr/SKILL.md) | Preserve and maintain reasons that code cannot recover | Automatic |
+| [adr-setup](skills/adr-setup/SKILL.md) | Establish a project's ADR convention from its existing documentation | User only |
+| [adr-archive](skills/adr-archive/SKILL.md) | Audit, prune, consolidate, and archive historical decision records | User only |
 | [conventional-commit](skills/conventional-commit/SKILL.md) | Express a coherent change using the chosen commit convention | Automatic |
 
 ### Modes
@@ -120,7 +121,7 @@ You can install the entire collection or select individual skills. Skill bodies 
 
 ### Host metadata
 
-For `decision-records-setup`, `grilling`, `teach`, and `retro`, `SKILL.md` declares `disable-model-invocation: true`, and `agents/openai.yaml` declares `policy.allow_implicit_invocation: false`. These flags encode user-only intent for supporting platforms. The skill instructions also instruct models to require an explicit user prompt. Other skills remain automatically discoverable.
+For `adr-setup`, `adr-archive`, `grilling`, `teach`, and `retro`, `SKILL.md` declares `disable-model-invocation: true`, and `agents/openai.yaml` declares `policy.allow_implicit_invocation: false`. These flags encode user-only intent for supporting platforms. The skill instructions also instruct models to require an explicit user prompt. Other skills remain automatically discoverable.
 
 To verify structural integrity locally, run:
 
@@ -147,7 +148,7 @@ Select companions individually rather than installing overlapping packages whole
 
 - **Code is the source of truth for actual behavior.** Requirements and approved decisions describe intended behavior. A discrepancy may indicate a bug rather than permission to change requirements. Tests provide evidence and can themselves be flawed.
 - **Documentation respects the project's structure.** When no convention exists and documentation is needed, `canonical-docs` provides standard options, including an optional tier taxonomy for larger codebases. No empty scaffold is created on setup.
-- **Decisions belong in lightweight records.** When lasting rationale cannot be deduced from code, `decision-records` records the context, options, and consequences using `docs/agents/notes/{proposed,implemented,rejected,archived}/YYYY-MM-DD-topic.md` (or the repository's existing ADR format).
+- **Decisions belong in lightweight records.** When lasting rationale cannot be deduced from code, `adr` records the context, options, and consequences using `docs/agents/notes/{proposed,implemented,rejected,archived}/YYYY-MM-DD-topic.md` (or the repository's existing ADR format). Advance proposed records to implemented when shipping changes.
 - **Task state remains ephemeral.** Keep temporary notes in conversational context. When a shared handover file is needed, `plan` offers an optional `docs/agents/work/<task>.md` template that is cleaned up or promoted upon task completion.
 
 ## Limitations

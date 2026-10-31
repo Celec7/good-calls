@@ -48,6 +48,6 @@ Tier names and paths are examples. Map each role to the project's actual paths; 
 
 ## Boundary
 
-- The [decision record](../../decision-records/SKILL.md) owns rationale; the [incident record](incident-records.md) owns failure stories.
+- The [architecture decision record](../../adr/SKILL.md) owns rationale; the [incident record](incident-records.md) owns failure stories.
 - Sentence-level prose is owned by [prose-standard](../../prose-standard/SKILL.md).
 - [SKILL.md](../SKILL.md) owns the placement procedure and the choice to establish a structure; this file owns the taxonomy itself.
