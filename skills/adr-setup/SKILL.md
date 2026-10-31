@@ -21,7 +21,7 @@ This skill establishes a small, maintainable project convention for durable arch
 
 ## Method
 
-Inspect existing ADRs, RFCs, contributor guidance, and documentation rules before proposing changes. Reuse an established convention where possible; repair a specific gap instead of creating a parallel system. Decide who the records guide: project-wide decisions belong in shared records; a personal local-only mode is authoritative only for that developer's environment. In collaborative work, promote decisions that constrain others into shared records.
+Inspect existing ADRs, RFCs, contributor guidance, and documentation rules before proposing changes. Reuse an established convention where possible; repair a specific gap instead of creating a parallel system. If the project has no convention, adopt Good Calls' recommended default: shared records under `docs/agents/notes/{proposed,implemented,rejected,archived}/` driven by [adr](../adr/SKILL.md), without scaffolding empty directories or copying duplicate templates. Decide who the records guide: project-wide decisions belong in shared records; personal local-only records guide only that developer's environment.
 
 Define only the choices future authors need:
 
@@ -33,7 +33,7 @@ Define only the choices future authors need:
 
 For personal local-only records, use `docs/agents/local/adr/` unless the project has a better established location. Keep the directory visible, ignore its contents through `.gitignore`, and record a brief agent instruction telling agents to inspect it explicitly; ordinary search skips ignored paths. Do not link to local-only records from shared documentation. State that records are per working tree and not backed up by Git. If the user wants no repository edits, use a per-clone exclude rule.
 
-Prefer the nearest existing documentation owner and the smallest useful convention. Do not copy external paths, status names, required headings, indexes, or metadata as universal rules. Keep setup separate from the first actual decision record.
+Record the convention minimally: add one or two lines to the project's existing instruction file (such as `AGENTS.md` or a development section in `README.md`) pointing to the chosen path and [adr](../adr/SKILL.md). Prefer the nearest existing documentation owner and the smallest useful convention. Do not scaffold empty directories, copy external metadata, or create placeholder templates. Keep setup separate from the first actual decision record.
 
 ## Validate and report
 
